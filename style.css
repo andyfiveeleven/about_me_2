@@ -1,0 +1,40 @@
+html {
+  font-family: 'futura', Serif, sans-serif;
+}
+
+h1 {
+  background-color: #777;
+  color: white;
+  font-family: Verdana, Comic sans-serif, Helvetica;
+  text-align: center;
+  border: 5px dotted black;
+}
+
+h2 {
+  font-weight: bold;
+  font-style: italic;
+  font-family: comic, helvetica, arial;
+}
+
+p {
+  background-color: #821414;
+  color: white;
+  text-align: center;
+  font-size: 20px;
+  border: 7px solid black;
+}
+
+#firstImg {
+  box-shadow: 3px 3px 3px red;
+  margin: 1em;
+}
+
+#secondImg {
+  box-shadow: 3px 3px 3px white;
+  margin: 1em;
+}
+
+#thirdImg {
+  box-shadow: 3px 3px 3px blue;
+  margin: 1em;
+}

@@ -60,16 +60,20 @@ if (defaultAnswersArr.indexOf(playGameOneQuestion) <= 3) {
     var questionAnswersArr = [];
     var userLetterArr = [];
 
-    for (var i = 0; i < lettersArr.length; i++) {
-      var letterQuestionYesNo = prompt('Do you have a "' + lettersArr[i] + '" in your first name?').toUpperCase();
-      console.log('user has "' + lettersArr[i] + '" in their first name? ' + letterQuestionYesNo);
-
-      if (defaultAnswersArr.indexOf(letterQuestionYesNo) <= 3) {
+    function yesNoChecker(userYN){
+      if (defaultAnswersArr.indexOf(userYN) <= 3) {
         questionAnswersArr.push(1);
         userLetterArr.push(lettersArr[i]);
       } else {
         questionAnswersArr.push(0);
       }
+    }
+
+    for (var i = 0; i < lettersArr.length; i++) {
+      var letterQuestionYesNo = prompt('Do you have a "' + lettersArr[i] + '" in your first name?').toUpperCase();
+      console.log('user has "' + lettersArr[i] + '" in their first name? ' + letterQuestionYesNo);
+
+      yesNoChecker(letterQuestionYesNo);
     }
 
     console.log('user response in an array: ' + questionAnswersArr + '. user response joined: ' + questionAnswersArr.join('') + '.');
@@ -84,6 +88,8 @@ if (defaultAnswersArr.indexOf(playGameOneQuestion) <= 3) {
     alert('We have ' + sum + ' letters in common!');
 
     alert('Now that you know my first name, let\'s guess my last name!');
+
+// game three
 
     var lastNameArr = ['O', 'H'];
     var flagTwo;

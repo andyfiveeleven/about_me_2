@@ -12,8 +12,9 @@ if (defaultAnswersArr.indexOf(playGameOneQuestion) <= 3) {
   console.log('YES - position of users answers in defaultAnswersArr: ', defaultAnswersArr.indexOf(playGameOneQuestion));
 
   var number;
-  var gameOneCounter = 0;
+  var gameOneCounter = 1;
   var gameOneAntiCounter = 4;
+  var flagOne;
 
   while (number !== 5 && gameOneCounter !== 4) { // while number is not 5, run some code. if gameOneAntiCounter = 0, break
     number = parseInt(prompt('How many letters are in my first name?'));
@@ -38,6 +39,8 @@ if (defaultAnswersArr.indexOf(playGameOneQuestion) <= 3) {
       alert('Please enter a number! Counts as a try!' + gameOneAntiCounter + ' tries left!');
       console.log('number of attempts:', gameOneCounter);
       console.log('user number:', number);
+    } else if (number === 5) {
+        flagOne = true;
     }
   }
 
@@ -80,6 +83,34 @@ if (defaultAnswersArr.indexOf(playGameOneQuestion) <= 3) {
 
     alert('We have ' + sum + ' letters in common!');
 
+    alert('Now that you know my first name, let\'s guess my last name!');
+
+    var lastNameArr = ['O', 'H'];
+    var flagTwo;
+
+    while (!flagTwo){
+        var gameTwoQuestion = prompt('Let\'s guess one letter of my last name! What letter do you choose? (A-Z)').toUpperCase();
+
+        for (var i = 0; i < lastNameArr.length; i++) {
+          if(gameTwoQuestion === lastNameArr[i]) {
+            flagTwo = true;
+            console.log('flag status:', flagTwo);
+          }
+          if (!flagTwo) {
+            alert('Keep guessing!')
+          }
+        }
+
+        if (flagTwo) {
+          alert('That\'s right! ' + lastNameArr[i] + ' is a letter of my last name!');
+        }
+    }
+
+    if (flagOne === true) {
+      alert(userName + '\'s Question Summary: You guessed how many letters are in my last name in ' + gameOneCounter + ' tries! We also have ' + sum + ' letters in common!');
+    } else {
+      alert(userName + '\'s Question Summary: Looks like you weren\'t able to guess the letters in my name, but we have ' + sum + ' letters in common!');
+    }
 
   } else if (defaultAnswersArr.indexOf(greeting) > 3) {
     var greetingQuestionTwo = prompt('Do you like having fun? (Y/N)').toUpperCase();
